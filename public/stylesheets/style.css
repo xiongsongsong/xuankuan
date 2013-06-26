@@ -7,31 +7,58 @@ a {
     color: #00B7FF;
 }
 
-#toupiao a {
+#toupiao b {
     display: inline-block;
     width: 326px;
     height: 499px;
     vertical-align: top;
-    margin: 50px;
+    margin: 10px;
     position: relative;
+    border: solid 1px #eee;
+    border-radius: 5px;
+    padding: 12px;
 }
 
-#toupiao a b {
-    position: absolute;
+#toupiao b.runing {
+    border-color: deeppink;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    border-style: dashed;
+}
+
+h1 {
+    position: fixed;
     left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 23px 0;
-    font-size: 50px;
-    text-align: center;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#toupiao b img {
+}
+
+#toupiao span {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    opacity: .8;
     cursor: pointer;
 }
 
-#toupiao a b {
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr='#7F000000');
+#toupiao .J-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
 }
 
-:root #toupiao a b {
-    filter: none; /*处理IE9浏览器中的滤镜效果*/
-    background-color: rgba(0, 0, 0, 0.5);
+#toupiao .J-runing {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+body.show #toupiao .J-info {
+    display: block;
 }

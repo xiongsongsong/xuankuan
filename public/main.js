@@ -60,18 +60,90 @@ KISSY.use('cookie', function (S) {
 
     var li = '';
     $(arr).each(function (index, item) {
-        li += '<a><img src="./pic/' + item.pic + '"</a>'
+        li += '<b id="id_' + (index + 1) + '" data-id="' + (index + 1) + '"><img src="./pic/' + item.pic + '" /></b>'
     });
 
     $('#toupiao').html(li);
 
-    $('#toupiao').on('mouseenter mouseleave', 'a', function (ev) {
-        if (ev.type === 'mouseenter') {
-            $(this).append('<b>喜欢这件</b>');
-        } else {
-            $(this).find('b').remove();
-        }
-    });
-});
 
+    var max;
+
+    var cookie_value = KISSY.Cookie.get('value');
+    if (cookie_value) {
+        max = parseInt(cookie_value, 10);
+    }
+    if (isNaN(max) && cookie_value !== 'fail') max = 6;
+
+    if (cookie_value === 'fail') {
+        $('h1').html('<h1><a class="button button-pill button-flat-primary" style="font-size: 20px">您已经选择完毕啦，谢谢您的参与，按数字 5 可以查看结果</a></h1>');
+    } else {
+        $('h1').html('<h1><a class="button button-pill button-flat-primary" style="font-size: 20px">请选择您喜欢的款式，最多选 ' + max + '个 </a></h1>');
+    }
+
+    if (max >= 0) {
+
+        $('#toupiao').on('mouseenter mouseleave', 'b', function (ev) {
+            var b = $(ev.currentTarget);
+            if (max < 1) return;
+            if (b.data('runing') === true) {
+                return;
+            }
+            if (ev.type === 'mouseenter') {
+                $(this).append('<span class="button-wrap J-button"><a class="button button-circle button-caution">喜欢</a></span>');
+            } else {
+                $(this).find('span.button-wrap').remove();
+            }
+        });
+
+        $('#toupiao').on('click', 'span.button-wrap', function (ev) {
+            var b = $(this).parents('b');
+            var id = $(this).parents('b').data('id');
+            b.find('span.J-button').remove();
+            max--;
+            KISSY.Cookie.set('value', max);
+            if (max < 1) {
+                KISSY.Cookie.set('value', 'fail');
+                $('h1').html('<h1><a class="button button-pill button-flat-primary" style="font-size: 20px">您已经选择完毕啦，谢谢您的参与，按数字 5 可以查看结果！</a></h1>');
+                return;
+            }
+            $('h1').html('<h1><a class="button button-pill button-flat-primary" style="font-size: 20px">您还可以选择 ' + max + '个 </a></h1>');
+
+            b.addClass('runing');
+            if (!b.data('runing')) {
+                b.append($('<a class="button J-runing glow button-rounded button-flat-royal">谢谢参与</a>'))
+                b.data('runing', true);
+            } else {
+                return;
+            }
+
+
+            $.get('/tongji', {
+                id: id
+            }, function () {
+                getInfo();
+            });
+        });
+    }
+});
+5
+$(window).on('keypress', function (ev) {
+    if (ev.keyCode === 53) {
+        getInfo();
+        $(document.body).addClass('show');
+    } else {
+        $(document.body).removeClass('show');
+    }
+})
+
+function getInfo() {
+    $.get('/info', {
+        r: Math.random()
+    }, function (docs) {
+        $(docs.docs).each(function (i, item) {
+            var $item = $('#' + item.id);
+            $item.find('a.J-info').remove();
+            $item.append($('<a  class="J-info button button-flat-primary">' + item.value + '</a>'));
+        })
+    });
+}
 
