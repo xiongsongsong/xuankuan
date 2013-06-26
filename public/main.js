@@ -60,7 +60,7 @@ KISSY.use('cookie', function (S) {
 
     var li = '';
     $(arr).each(function (index, item) {
-        li += '<b id="id_' + (index + 1) + '" data-id="' + (index + 1) + '"><img src="./pic/' + item.pic + '" /></b>'
+        li += '<b id="id_' + (index + 1) + '" data-id="' + (index + 1) + '"><a href="'+item.url+'" target="_blank"> <img src="./pic/' + item.pic + '" /></a></b>'
     });
 
     $('#toupiao').html(li);
