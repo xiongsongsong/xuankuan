@@ -1,0 +1,37 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+#toupiao a {
+    display: inline-block;
+    width: 326px;
+    height: 499px;
+    vertical-align: top;
+    margin: 50px;
+    position: relative;
+}
+
+#toupiao a b {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 23px 0;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#toupiao a b {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr='#7F000000');
+}
+
+:root #toupiao a b {
+    filter: none; /*处理IE9浏览器中的滤镜效果*/
+    background-color: rgba(0, 0, 0, 0.5);
+}
