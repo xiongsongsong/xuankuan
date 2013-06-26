@@ -125,8 +125,8 @@ KISSY.use('cookie', function (S) {
         });
     }
 });
-5
-$(window).on('keypress', function (ev) {
+
+$(document).on('keydown', function (ev) {
     if (ev.keyCode === 53) {
         getInfo();
         $(document.body).addClass('show');
