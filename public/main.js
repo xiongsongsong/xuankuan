@@ -38,23 +38,23 @@ KISSY.use('cookie', function (S) {
         },
         {
             pic: "8.jpg",
-            url: "http://item.taobao.com/item.htm?id=20816004676&ali_trackid=2:mm_14507426_0_0:1372171081_3k3_2020830066"
+            url: "http://item.taobao.com/item.htm?spm=a230r.1.14.126.WJq4Uf&id=19702868975"
         },
         {
             pic: "9.jpg",
-            url: "http://item.taobao.com/item.htm?spm=2013.1.0.174.lUbBg7&id=19133095312"
+            url: "http://item.taobao.com/item.htm?id=20816004676&ali_trackid=2:mm_14507426_0_0:1372171081_3k3_2020830066"
         },
         {
             pic: "10.jpg",
-            url: "http://item.taobao.com/item.htm?spm=a230r.1.14.61.WJq4Uf&id=18167523626"
+            url: "http://item.taobao.com/item.htm?spm=2013.1.0.174.lUbBg7&id=19133095312"
         },
         {
             pic: "11.jpg",
-            url: "http://detail.tmall.com/item.htm?id=23899912039&ali_refid=a3_420434_1006:1105367320:6:%C3%AB%D2%C2+%C5%AE+%BA%AB%B0%E6+%BF%ED%CB%C9:830d1148b597abb1f69fae7a6bea1bf7&ali_trackid=1_830d1148b597abb1f69fae7a6bea1bf7&spm=a230r.1.17.2.WJq4Uf"
+            url: "http://item.taobao.com/item.htm?spm=a230r.1.14.61.WJq4Uf&id=18167523626"
         },
         {
             pic: "12.jpg",
-            url: "http://item.taobao.com/item.htm?id=15930969168&ali_trackid=2:mm_14507426_0_0:1372171617_6k2_1602831667"
+            url: "http://detail.tmall.com/item.htm?id=23899912039&ali_refid=a3_420434_1006:1105367320:6:%C3%AB%D2%C2+%C5%AE+%BA%AB%B0%E6+%BF%ED%CB%C9:830d1148b597abb1f69fae7a6bea1bf7&ali_trackid=1_830d1148b597abb1f69fae7a6bea1bf7&spm=a230r.1.17.2.WJq4Uf"
         }
     ];
 
