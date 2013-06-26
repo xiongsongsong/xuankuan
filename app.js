@@ -51,6 +51,6 @@ app.get('/info', function (req, res) {
     var collection = new DB.Collection(DB.Client, 'tongji');
 
     collection.find({}).toArray(function (err, docs) {
-        res.json({docs: docs});
+        res.json({docs: docs, pid: process.pid});
     });
 });
